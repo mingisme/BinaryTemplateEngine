@@ -1,0 +1,63 @@
+{
+  "totalSize": 100,
+  "fields": [
+    {
+      "name": "header",
+      "value": "PROTO",
+      "offset": 0,
+      "type": "string",
+      "length": 5,
+      "encoding": "UTF-8"
+    },
+    {
+      "name": "version",
+      "value": "${version}",
+      "offset": 5,
+      "type": "byte"
+    },
+    {
+      "name": "userId",
+      "value": "$.user.id",
+      "offset": 6,
+      "type": "int"
+    },
+    {
+      "name": "userName",
+      "value": "${user.name?upper_case}",
+      "offset": 10,
+      "type": "string",
+      "length": 30,
+      "encoding": "UTF-8"
+    },
+    {
+      "name": "itemCount",
+      "value": "$.items.length()",
+      "offset": 40,
+      "type": "short"
+    },
+    {
+      "name": "totalPrice",
+      "value": "${items[0].price + items[1].price}",
+      "offset": 42,
+      "type": "int"
+    },
+    {
+      "name": "discountedPrice",
+      "value": "${(totalAmount > 1000)?then(totalAmount * 0.9, totalAmount)}",
+      "offset": 46,
+      "type": "int"
+    },
+    {
+      "name": "statusCode",
+      "value": "${user.active?then(1, 0)}",
+      "offset": 50,
+      "type": "byte"
+    },
+    {
+      "name": "timestamp",
+      "value": "${.now?long}",
+      "offset": 51,
+      "type": "long"
+    }
+  ]
+}

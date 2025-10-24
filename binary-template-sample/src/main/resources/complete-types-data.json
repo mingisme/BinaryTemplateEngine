@@ -1,0 +1,14 @@
+{
+  "byteValue": 127,
+  "shortValue": 32000,
+  "intValue": 2147483647,
+  "longValue": 9223372036854775807,
+  "floatValue": 3.14159,
+  "doubleValue": 2.718281828459045,
+  "boolValue": true,
+  "charValue": "A",
+  "stringValue": "Hello World",
+  "bytesValue": "DEADBEEF0102",
+  "price": 100.0,
+  "score": 95
+}

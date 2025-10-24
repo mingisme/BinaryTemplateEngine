@@ -1,0 +1,19 @@
+{
+  "version": 3,
+  "user": {
+    "id": 12345,
+    "name": "alice_smith",
+    "active": true
+  },
+  "items": [
+    {
+      "name": "Product A",
+      "price": 500
+    },
+    {
+      "name": "Product B",
+      "price": 750
+    }
+  ],
+  "totalAmount": 1250
+}

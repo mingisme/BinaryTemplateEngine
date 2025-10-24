@@ -1,0 +1,80 @@
+{
+  "totalSize": 100,
+  "fields": [
+    {
+      "name": "byteField",
+      "value": "${byteValue}",
+      "offset": 0,
+      "type": "byte"
+    },
+    {
+      "name": "shortField",
+      "value": "${shortValue}",
+      "offset": 1,
+      "type": "short"
+    },
+    {
+      "name": "intField",
+      "value": "${intValue}",
+      "offset": 3,
+      "type": "int"
+    },
+    {
+      "name": "longField",
+      "value": "${longValue}",
+      "offset": 7,
+      "type": "long"
+    },
+    {
+      "name": "floatField",
+      "value": "${floatValue}",
+      "offset": 15,
+      "type": "float"
+    },
+    {
+      "name": "doubleField",
+      "value": "${doubleValue}",
+      "offset": 19,
+      "type": "double"
+    },
+    {
+      "name": "booleanField",
+      "value": "${boolValue?c}",
+      "offset": 27,
+      "type": "boolean"
+    },
+    {
+      "name": "charField",
+      "value": "${charValue}",
+      "offset": 28,
+      "type": "char"
+    },
+    {
+      "name": "stringField",
+      "value": "${stringValue}",
+      "offset": 30,
+      "type": "string",
+      "length": 20,
+      "encoding": "UTF-8"
+    },
+    {
+      "name": "bytesField",
+      "value": "${bytesValue}",
+      "offset": 50,
+      "type": "bytes",
+      "length": 10
+    },
+    {
+      "name": "calculatedFloat",
+      "value": "${price * 1.15}",
+      "offset": 60,
+      "type": "float"
+    },
+    {
+      "name": "conditionalBool",
+      "value": "${(score > 80)?c}",
+      "offset": 64,
+      "type": "boolean"
+    }
+  ]
+}

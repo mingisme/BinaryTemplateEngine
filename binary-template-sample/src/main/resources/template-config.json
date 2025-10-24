@@ -1,0 +1,46 @@
+{
+  "totalSize": 50,
+  "fields": [
+    {
+      "name": "version",
+      "value": "${protocolVersion}",
+      "offset": 0,
+      "type": "byte",
+      "defaultValue": 1
+    },
+    {
+      "name": "messageId",
+      "value": "${messageId}",
+      "offset": 1,
+      "type": "int"
+    },
+    {
+      "name": "priority",
+      "value": "${priority * 2}",
+      "offset": 5,
+      "type": "short",
+      "defaultValue": 5
+    },
+    {
+      "name": "username",
+      "value": "${username?upper_case}",
+      "offset": 7,
+      "type": "string",
+      "length": 20,
+      "encoding": "UTF-8"
+    },
+    {
+      "name": "timestamp",
+      "value": "${timestamp}",
+      "offset": 27,
+      "type": "long"
+    },
+    {
+      "name": "status",
+      "value": "${(priority > 5)?then(status + 20, status + 10)}",
+      "offset": 35,
+      "type": "byte",
+      "defaultValue": 0
+    }
+  ]
+}

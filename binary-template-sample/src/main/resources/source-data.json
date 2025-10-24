@@ -1,0 +1,8 @@
+{
+  "protocolVersion": 2,
+  "messageId": 12345,
+  "priority": 5,
+  "username": "john_doe",
+  "timestamp": 1729785600000,
+  "status": 1
+}
