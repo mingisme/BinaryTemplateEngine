@@ -1,7 +1,7 @@
 package com.binarytemplate.engine;
 
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -397,12 +397,28 @@ public class CompiledTemplate {
         }
         
         private byte[] hexStringToBytes(String hex) {
+            if (hex.length() % 2 != 0) {
+                throw new IllegalArgumentException("Hex string must have even length: " + hex);
+            }
+            
             int len = hex.length();
             byte[] data = new byte[len / 2];
-            for (int i = 0; i < len; i += 2) {
-                data[i / 2] = (byte) ((Character.digit(hex.charAt(i), 16) << 4)
-                        + Character.digit(hex.charAt(i + 1), 16));
+            
+            try {
+                for (int i = 0; i < len; i += 2) {
+                    int digit1 = Character.digit(hex.charAt(i), 16);
+                    int digit2 = Character.digit(hex.charAt(i + 1), 16);
+                    
+                    if (digit1 == -1 || digit2 == -1) {
+                        throw new IllegalArgumentException("Invalid hex character in: " + hex);
+                    }
+                    
+                    data[i / 2] = (byte) ((digit1 << 4) + digit2);
+                }
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Failed to parse hex string: " + hex, e);
             }
+            
             return data;
         }
 
