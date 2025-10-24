@@ -90,8 +90,8 @@ public class ExpressionEvaluator {
             return parseResult(result);
             
         } catch (IOException | TemplateException e) {
-            // If FreeMarker fails, return the original expression
-            return expression;
+            // If FreeMarker fails, return null to trigger default value fallback
+            return null;
         }
     }
     
@@ -119,11 +119,11 @@ public class ExpressionEvaluator {
         } else if (element.isJsonPrimitive()) {
             com.google.gson.JsonPrimitive primitive = element.getAsJsonPrimitive();
             if (primitive.isNumber()) {
-                // Try to preserve number type
-                try {
-                    return primitive.getAsLong();
-                } catch (NumberFormatException e) {
+                // Preserve decimal numbers as Double, integers as Long
+                if (primitive.getAsString().contains(".")) {
                     return primitive.getAsDouble();
+                } else {
+                    return primitive.getAsLong();
                 }
             } else if (primitive.isBoolean()) {
                 return primitive.getAsBoolean();
